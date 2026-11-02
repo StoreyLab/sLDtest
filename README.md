@@ -1,6 +1,8 @@
 # sLDtest
 
-The 'sLDtest' R package implements a hypothesis testing method of structural linkage disequilibrium (sLD), as well as a forward-generating probability model for genotypes in sLD.
+[![R-CMD-check](https://github.com/StoreyLab/sLDtest/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/StoreyLab/sLDtest/actions/workflows/R-CMD-check.yaml)
+
+The `sLDtest` R package implements a hypothesis testing method of structural linkage disequilibrium (sLD), as well as a forward-generating probability model for genotypes in sLD.
 
 ## Installation 
 
@@ -13,21 +15,27 @@ pak::pak("StoreyLab/sLDtest")
 
 ### Input genotype data 
 
-'sLDtest' is designed to be applied to genotype data like in the example below. These genotypes were simulated under an admixture model with $K=4$ admixed populations using the package 'bnpsd'.
+`sLDtest` is designed to be applied to genotype data like in the example below. These genotypes were simulated under an admixture model with $K=4$ admixed populations using the package `bnpsd`.
 
 ```R
+library(sLDtest)
+
 # Load input genotype data matrix (I loci by J individuals)
 data(genodata)
 ```
 
 ### Run the sLD test 
 
-The implementation of the sLD test requires only genotypes to be supplied by the user. However, individual-specific allele frequencies (IAFs) must be estimated from these genotypes using any one of a wide range of existing methods. In our analyses, we use the package 'alstructure' to estimate IAFs. 
+The implementation of the sLD test requires only genotypes to be supplied by the user. However, individual-specific allele frequencies (IAFs) must be estimated from these genotypes using any one of a wide range of existing methods. In our analyses, we use the package `alstructure` to estimate IAFs. 
 
 ```R
-# Estimate IAFs 
 X <- genodata
 J_ind <- ncol(X) # get the number of individuals 
+
+# Estimate IAFs 
+library(devtools)
+install_github("storeylab/alstructure")
+library(alstructure)
 Pi_hat <- alstructure::estimate_F(X, d = 4)$F_hat # assume K known for simplicity
 Pi_hat[Pi_hat < 1/(2*J_ind)] <- 1/(2*J_ind) # truncate estimates
 Pi_hat[Pi_hat > 1 - 1/(2*J_ind)] <- 1 - 1/(2*J_ind)
@@ -54,7 +62,9 @@ https://github.com/StoreyLab/sLD-manuscript-analysis
 ## Citations 
 
 Alvin J. Zhang, John D. Storey. 2026. "A test for linkage disequilibrium in structured populations." bioRxiv [doi:10.64898/2026.10.18.759967](https://doi.org/10.64898/2026.10.18.759967) 2026-10-19. 
-For users of 'alstructure', please cite: Irineo Cabreros, John D. Storey. 2019. "A likelihood-free estimator of population structure bridging admixture models and principal components analysis." doi: [10.1534/genetics.119.302159](https://doi.org/10.1534/genetics.119.302159) 2019-08-01. 
-For users of 'bnpsd', please cite: Alejandro Ochoa, John D Storey.  2021.  "Estimating FST and kinship for arbitrary population structures." PLoS Genet 17(1): e1009241. PubMed ID 33465078. [doi:10.1371/journal.pgen.1009241](https://doi.org/10.1371/journal.pgen.1009241). bioRxiv [doi:10.1101/083923](https://doi.org/10.1101/083923) 2016-10-27.
+
+For users of `alstructure`, please cite: Irineo Cabreros, John D. Storey. 2019. "A likelihood-free estimator of population structure bridging admixture models and principal components analysis." doi: [10.1534/genetics.119.302159](https://doi.org/10.1534/genetics.119.302159) 2019-08-01. 
+
+For users of `bnpsd`, please cite: Alejandro Ochoa, John D Storey.  2021.  "Estimating FST and kinship for arbitrary population structures." PLoS Genet 17(1): e1009241. PubMed ID 33465078. [doi:10.1371/journal.pgen.1009241](https://doi.org/10.1371/journal.pgen.1009241). bioRxiv [doi:10.1101/083923](https://doi.org/10.1101/083923) 2016-10-27.
 
  
