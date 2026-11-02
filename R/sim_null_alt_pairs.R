@@ -7,9 +7,9 @@
 #' @param Pi Matrix of individual-specific allele frequencies 
 #'      (\eqn{I} loci x \eqn{J} individuals).
 #' @param alt_ids Pairs of locus indices corresponding to true alternate hypotheses. 
-#' @param LD_sign Direction of LD (1 for positive LD, -1 for negative LD)
-#' @param D_prime A value between 0 and 1 denoting the proportion of the maximum or
-#'      minimum possible LD coefficient
+#' @param rho A single numeric value in \eqn{[-1, 1]} denoting the residual correlation
+#'      between the minor alleles of loci \eqn{a} and \eqn{b}. Positive values indicate
+#'      positive LD between minor alleles; negative values indicate negative LD.
 #'
 #' @return A \eqn{I} x \eqn{J} genotype matrix.
 #'     
@@ -19,10 +19,10 @@
 #' @examples
 #' Pi <- matrix(runif(n = 500*50), nrow = 500, ncol = 50)
 #' alt_ids <- t(replicate(1000, sample(1:500, size = 2, replace = FALSE)))
-#' LD_sign <- 1
-#' D_prime <- 0.4 
-#' X_ab <- sim_null_alt_pairs(Pi, alt_ids, LD_sign, D_prime)
+#' rho <- 0.4 
+#' X_ab <- sim_null_alt_pairs(Pi, alt_ids, rho)
 #' 
+#' @importFrom stats rbinom
 #' @export
 
 sim_null_alt_pairs <- function(Pi, alt_ids, rho) {

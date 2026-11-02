@@ -15,8 +15,9 @@
 #' 
 #' @examples
 #' p_vals <- runif(1000)
-#' compute_neg_entropy(p_vals, n_bin = 10, include_first_bin = TRUE)
+#' compute_entropy(p_vals, n_bin = 10, include_first_bin = TRUE)
 #' 
+#' @importFrom graphics hist
 #' @export
 
 compute_entropy <- function(p_vals, n_bin, include_first_bin = TRUE) {

@@ -17,6 +17,7 @@
 #' sLD_test_stat <- sLD_SNP(X_a, X_b, pi_a, pi_b) 
 #' sLD_p_val <- compute_p_val(sLD_test_stat)
 #' 
+#' @importFrom stats pnorm
 #' @export
 
 compute_p_val <- function(test_stats) {

@@ -12,10 +12,9 @@ sim_null_alt_pairs(Pi, alt_ids, rho)
 
 \item{alt_ids}{Pairs of locus indices corresponding to true alternate hypotheses.}
 
-\item{LD_sign}{Direction of LD (1 for positive LD, -1 for negative LD)}
-
-\item{D_prime}{A value between 0 and 1 denoting the proportion of the maximum or
-minimum possible LD coefficient}
+\item{rho}{A single numeric value in \eqn{[-1, 1]} denoting the residual correlation
+between the minor alleles of loci \eqn{a} and \eqn{b}. Positive values indicate
+positive LD between minor alleles; negative values indicate negative LD.}
 }
 \value{
 A \eqn{I} x \eqn{J} genotype matrix.
@@ -32,8 +31,7 @@ either equal 1 or -1. D_prime must be in the interval \eqn{[0,1]}.
 \examples{
 Pi <- matrix(runif(n = 500*50), nrow = 500, ncol = 50)
 alt_ids <- t(replicate(1000, sample(1:500, size = 2, replace = FALSE)))
-LD_sign <- 1
-D_prime <- 0.4 
-X_ab <- sim_null_alt_pairs(Pi, alt_ids, LD_sign, D_prime)
+rho <- 0.4 
+X_ab <- sim_null_alt_pairs(Pi, alt_ids, rho)
 
 }

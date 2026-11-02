@@ -2,7 +2,7 @@ Package: sLDtest
 Version: 0.0.0.9000
 Date: 2026-05-04
 Depends: R (>= 4.0.0)
-Imports: stats
+Imports: stats, graphics
 Suggests: 
     testthat (>= 3.0.0)
 Title: Structural Linkage Disequilibrium Test
@@ -26,3 +26,4 @@ Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
 Config/testthat/edition: 3
+LazyData: true

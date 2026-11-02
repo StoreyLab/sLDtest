@@ -26,6 +26,7 @@
 #' rho <- 0.2
 #' X_ab <- sim_structural_LD(pi_a, pi_b, rho = rho)
 #'
+#' @importFrom stats rmultinom
 #' @export
 sim_structural_LD <- function(pi_a, pi_b, rho) {
   # Check arguments

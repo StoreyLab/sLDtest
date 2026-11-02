@@ -27,6 +27,6 @@ include_first_bin is TRUE by default.
 }
 \examples{
 p_vals <- runif(1000)
-compute_neg_entropy(p_vals, n_bin = 10, include_first_bin = TRUE)
+compute_entropy(p_vals, n_bin = 10, include_first_bin = TRUE)
 
 }
