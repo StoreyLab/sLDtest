@@ -1,0 +1,28 @@
+Package: sLDtest
+Version: 0.0.0.9000
+Date: 2026-05-04
+Depends: R (>= 4.0.0)
+Imports: stats
+Suggests: 
+    testthat (>= 3.0.0)
+Title: Structural Linkage Disequilibrium Test
+Authors@R: c(
+    person(given = "Alvin J.",
+	   family = "Zhang",
+	   role = c("aut", "cre"),
+	   email = "alvinz@princeton.edu",
+           comment = c(ORCID = "0009-0005-2966-9554")),
+    person(given = "John D.",
+           family = "Storey",
+	   role = c("aut"),
+	   email = "jstorey@princeton.edu",
+           comment = c(ORCID = "0000-0001-5992-402X"))
+    )
+Maintainer: Alvin J. Zhang <alvinz@princeton.edu>
+Description: Functions for implementing a hypothesis test of structural linkage disequilibrium (sLD), as well as a forward-generating model for genotypes in sLD.
+License: GPL (>= 3)
+URL: https://github.com/StoreyLab/sLDtest
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
+Config/testthat/edition: 3
