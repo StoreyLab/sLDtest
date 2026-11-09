@@ -20,7 +20,7 @@ using an empirical null distribution
 }
 \note{
 Computes \eqn{p}-values using the empirical distribution corresponding to
-null_stats.
+\code{null_stats}.
 }
 \examples{
 pi_a <- c(rep(0.25, 50), rep(0.3, 50))

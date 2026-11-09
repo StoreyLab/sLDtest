@@ -7,10 +7,10 @@
 #' @param Pi \eqn{I} x \eqn{J} matrix of individual-specific allele frequencies. 
 #' @param pair_ids Pairs of locus indices to test. 
 #'
-#' @return sLD test statistics for all locus pairs in pair_ids. 
+#' @return sLD test statistics for all locus pairs in \eqn{pair_ids}. 
 #'     
-#' @note X and Pi must have the same dimensions. 
-#'      pair_ids should be a matrix of dimension # pairs x 2. 
+#' @note \eqn{X} and \eqn{Pi} must have the same dimensions. 
+#'      \eqn{pair_ids} should be a matrix of dimension # pairs x \eqn{2}. 
 #'
 #' @examples
 #' Pi <- matrix(runif(n = 500 * 50), nrow = 500, ncol = 50)

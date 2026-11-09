@@ -11,7 +11,7 @@
 #' 
 #' @return Shannon entropy of the \eqn{p}-values.
 #' 
-#' @note include_first_bin is TRUE by default. 
+#' @note \code{include_first_bin} is TRUE by default. 
 #' 
 #' @examples
 #' p_vals <- runif(1000)

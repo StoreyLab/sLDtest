@@ -14,15 +14,15 @@ sLD(X, Pi, pair_ids)
 \item{pair_ids}{Pairs of locus indices to test.}
 }
 \value{
-sLD test statistics for all locus pairs in pair_ids.
+sLD test statistics for all locus pairs in \eqn{pair_ids}.
 }
 \description{
 This function performs the sLD test for a set of SNP pairs, returning a
 corresponding set of test statistics.
 }
 \note{
-X and Pi must have the same dimensions.
-pair_ids should be a matrix of dimension # pairs x 2.
+\eqn{X} and \eqn{Pi} must have the same dimensions.
+\eqn{pair_ids} should be a matrix of dimension # pairs x \eqn{2}.
 }
 \examples{
 Pi <- matrix(runif(n = 500 * 50), nrow = 500, ncol = 50)

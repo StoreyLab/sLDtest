@@ -1,6 +1,6 @@
 #' sLD_SNP
 #'
-#' This function performs the sLD test for a given pair of SNPs at distinct loci a and b,
+#' This function performs the sLD test for a given pair of SNPs at distinct loci \eqn{a} and \eqn{b},
 #' returning the sLD test statistic. 
 #'
 #' @param X_a Length-\eqn{J} vector of genotypes at locus a. 
@@ -10,7 +10,7 @@
 #'
 #' @return sLD test statistic computed for SNPs at loci a and b.
 #'     
-#' @note X_a, X_b, pi_a, pi_b must all be of the same length.
+#' @note \code{X_a}, \code{X_b}, \code{pi_a}, and \code{pi_b} must all be of the same length.
 #'
 #' @examples
 #' pi_a <- c(rep(0.25, 50), rep(0.3, 50))

@@ -17,7 +17,7 @@ between the minor alleles of loci \eqn{a} and \eqn{b}. Positive values indicate
 positive LD between minor alleles; negative values indicate negative LD.}
 }
 \value{
-A \eqn{I} x \eqn{J} genotype matrix.
+An \eqn{I} x \eqn{J} genotype matrix.
 }
 \description{
 This function draws a genotype matrix consisting of a mixture of genotype
@@ -25,8 +25,7 @@ pairs in structural LD (true alternate hypotheses) and not in structural
 LD (true null hypotheses).
 }
 \note{
-alt_ids should be a matrix of size # alternate hypotheses x 2. LD_sign must
-either equal 1 or -1. D_prime must be in the interval \eqn{[0,1]}.
+\code{alt_ids} should be a matrix of size # alternate hypotheses x \eqn{2}. \code{rho} must be in the interval \eqn{[-1, 1]}.
 }
 \examples{
 Pi <- matrix(runif(n = 500*50), nrow = 500, ncol = 50)

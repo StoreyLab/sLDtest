@@ -23,7 +23,7 @@ approximating how close their distribution is to the Uniform(0,1)
 distribution.
 }
 \note{
-include_first_bin is TRUE by default.
+\code{include_first_bin} is TRUE by default.
 }
 \examples{
 p_vals <- runif(1000)
