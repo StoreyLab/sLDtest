@@ -20,7 +20,7 @@ sLD test statistic computed for SNPs at loci a and b.
 }
 \description{
 This function performs the sLD test for a given pair of SNPs at distinct loci \eqn{a} and \eqn{b},
-returning the sLD test statistic.
+computing the sLD test statistic.
 }
 \note{
 \code{X_a}, \code{X_b}, \code{pi_a}, and \code{pi_b} must all be of the same length.

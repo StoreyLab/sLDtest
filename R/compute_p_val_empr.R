@@ -32,7 +32,6 @@ compute_p_val_empr <- function(test_stats, null_stats) {
     stop("The 'null_stats' vector cannot be empty.")
   }
   
-  # Fixed: changed obs_stats to test_stats
   obs_eval <- abs(test_stats)
   null_eval <- abs(null_stats)
   null_sorted <- sort(null_eval)

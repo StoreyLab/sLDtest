@@ -1,7 +1,7 @@
 #' sLD_SNP
 #'
 #' This function performs the sLD test for a given pair of SNPs at distinct loci \eqn{a} and \eqn{b},
-#' returning the sLD test statistic. 
+#' computing the sLD test statistic. 
 #'
 #' @param X_a Length-\eqn{J} vector of genotypes at locus a. 
 #' @param X_b Length-\eqn{J} vector of genotypes at locus b.
@@ -51,7 +51,7 @@ sLD_SNP <- function(X_a, X_b, pi_a, pi_b) {
   mean_term <- (X_a - 2*pi_a) * (X_b - 2*pi_b)
   var_term <- 4*pi_a*(1 - pi_a)*pi_b*(1 - pi_b)
   
-  denom <- sum(var_term)
+  denom <- sum(var_term) # ensure no division by 0
   if (denom == 0) {
     warning("Variance term is zero. Returning NA.")
     return(NA_real_)

@@ -13,7 +13,8 @@
 #'
 #' @return An \eqn{I} x \eqn{J} genotype matrix.
 #'     
-#' @note \code{alt_ids} should be a matrix of size # alternate hypotheses x \eqn{2}. \code{rho} must be in the interval \eqn{[-1, 1]}. 
+#' @note \code{alt_ids} should be a matrix of size # alternate hypotheses x \eqn{2}. 
+#'      \code{rho} must be in the interval \eqn{[-1, 1]}. 
 #'
 #' @examples
 #' Pi <- matrix(runif(n = 500*50), nrow = 500, ncol = 50)

@@ -68,7 +68,7 @@ sim_structural_LD <- function(pi_a, pi_b, rho) {
   h_01 <- pmax(0, (1 - p_a_eff) * p_b_eff - LD_offset)
   h_00 <- pmax(0, (1 - p_a_eff) * (1 - p_b_eff) + LD_offset)
   prob_sums <- h_11 + h_10 + h_01 + h_00
-  haplo_freqs <- cbind(h_11 / prob_sums,
+  haplo_freqs <- cbind(h_11 / prob_sums, # ensure IHFs sum to 1
                        h_10 / prob_sums,
                        h_01 / prob_sums,
                        h_00 / prob_sums)
