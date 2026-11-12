@@ -24,46 +24,37 @@ test_that("sim_structural_LD correctly validates input arguments", {
   rho <- 0.2
   
   # Error when non-numeric vector inputs
-  expect_error(
-    sim_structural_LD(as.character(pi_a), pi_b, rho),
-    "'pi_a' and 'pi_b' must be numeric vectors."
-  )
-  expect_error(
-    sim_structural_LD(pi_a, as.character(pi_b), rho),
-    "'pi_a' and 'pi_b' must be numeric vectors."
-  )
+  expect_error(sim_structural_LD(as.character(pi_a), pi_b, rho),
+               "'pi_a' and 'pi_b' must be numeric vectors."
+               )
+  expect_error(sim_structural_LD(pi_a, as.character(pi_b), rho),
+               "'pi_a' and 'pi_b' must be numeric vectors."
+               )
   
   # Error when there is a ength mismatch
-  expect_error(
-    sim_structural_LD(pi_a, pi_b[1:5], rho),
-    "'pi_a' and 'pi_b' must be of the same length."
-  )
+  expect_error(sim_structural_LD(pi_a, pi_b[1:5], rho),
+               "'pi_a' and 'pi_b' must be of the same length."
+               )
   
   # Error when allele frequencies out of bounds [0, 1]
-  expect_error(
-    sim_structural_LD(c(-0.01, pi_a[-1]), pi_b, rho),
-    "Allele frequencies must lie between 0 and 1."
-  )
-  expect_error(
-    sim_structural_LD(pi_a, c(pi_b[-10], 1.05), rho),
-    "Allele frequencies must lie between 0 and 1."
-  )
+  expect_error(sim_structural_LD(c(-0.01, pi_a[-1]), pi_b, rho),
+               "Allele frequencies must lie between 0 and 1."
+               )
+  expect_error(sim_structural_LD(pi_a, c(pi_b[-10], 1.05), rho),
+               "Allele frequencies must lie between 0 and 1."
+               )
   
   # Error when invalid rho
-  expect_error(
-    sim_structural_LD(pi_a, pi_b, 1.2),
-    "'rho' must be a single numeric value between -1 and 1."
-  )
-  expect_error(
-    sim_structural_LD(pi_a, pi_b, -1.5),
-    "'rho' must be a single numeric value between -1 and 1."
-  )
-  expect_error(
-    sim_structural_LD(pi_a, pi_b, "invalid_rho"),
-    "'rho' must be a single numeric value between -1 and 1."
-  )
-  expect_error(
-    sim_structural_LD(pi_a, pi_b, c(0.1, 0.5)),
-    "'rho' must be a single numeric value between -1 and 1."
-  )
+  expect_error(sim_structural_LD(pi_a, pi_b, 1.2),
+               "'rho' must be a single numeric value between -1 and 1."
+               )
+  expect_error(sim_structural_LD(pi_a, pi_b, -1.5),
+               "'rho' must be a single numeric value between -1 and 1."
+               )
+  expect_error(sim_structural_LD(pi_a, pi_b, "invalid_rho"),
+               "'rho' must be a single numeric value between -1 and 1."
+               )
+  expect_error(sim_structural_LD(pi_a, pi_b, c(0.1, 0.5)),
+               "'rho' must be a single numeric value between -1 and 1."
+               )
 })

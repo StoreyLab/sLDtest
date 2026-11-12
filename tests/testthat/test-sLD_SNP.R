@@ -40,18 +40,16 @@ test_that("sLD_SNP handles zero denominator and zero valid individuals with warn
   
   # Force zero variance denominator (e.g. all allele frequencies at 0 or 1)
   pi_a_zero <- rep(0, 10)
-  expect_warning(
-    stat_zero <- sLD_SNP(X_a, X_b, pi_a_zero, pi_b),
-    "Variance term is zero. Returning NA."
-  )
+  expect_warning(stat_zero <- sLD_SNP(X_a, X_b, pi_a_zero, pi_b),
+                 "Variance term is zero. Returning NA."
+                 )
   expect_identical(stat_zero, NA_real_)
   
   # Force zero valid individuals (all NA)
   X_a_na <- rep(NA_real_, 10)
-  expect_warning(
-    stat_none <- sLD_SNP(X_a_na, X_b, pi_a, pi_b),
-    "No valid non-missing pairs found. Returning NA."
-  )
+  expect_warning(stat_none <- sLD_SNP(X_a_na, X_b, pi_a, pi_b),
+                 "No valid non-missing pairs found. Returning NA."
+                 )
   expect_identical(stat_none, NA_real_)
 })
 
@@ -61,10 +59,9 @@ test_that("sLD_SNP warns when genotypes are outside {0, 1, 2}", {
   X_a <- c(3, rep(1, 9)) # 3 is invalid for diploid genotype counts
   X_b <- rep(1, 10)
   
-  expect_warning(
-    sLD_SNP(X_a, X_b, pi_a, pi_b),
-    "Genotype values in 'X_a' or 'X_b' contain values outside \\{0, 1, 2\\}."
-  )
+  expect_warning(sLD_SNP(X_a, X_b, pi_a, pi_b),
+                 "Genotype values in 'X_a' or 'X_b' contain values outside \\{0, 1, 2\\}."
+                 )
 })
 
 test_that("sLD_SNP correctly validates input arguments", {
@@ -74,14 +71,12 @@ test_that("sLD_SNP correctly validates input arguments", {
   X_b <- rep(1, 10)
   
   # Error when non-numeric input 
-  expect_error(
-    sLD_SNP(as.character(X_a), X_b, pi_a, pi_b),
-    "All input arguments must be numeric vectors."
-  )
+  expect_error(sLD_SNP(as.character(X_a), X_b, pi_a, pi_b),
+               "All input arguments must be numeric vectors."
+               )
   
   # Error when there is a length mismatch 
-  expect_error(
-    sLD_SNP(X_a, X_b[1:5], pi_a, pi_b),
-    "'X_a', 'X_b', 'pi_a', and 'pi_b' must have the same length."
-  )
+  expect_error(sLD_SNP(X_a, X_b[1:5], pi_a, pi_b),
+               "'X_a', 'X_b', 'pi_a', and 'pi_b' must have the same length."
+               )
 })

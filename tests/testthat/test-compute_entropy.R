@@ -4,7 +4,6 @@ test_that("compute_entropy calculates valid Shannon entropy for standard inputs"
   
   ent <- compute_entropy(p_vals, n_bin = 10, include_first_bin = TRUE)
   
-  # Checks
   expect_true(is.numeric(ent))
   expect_length(ent, 1)
   expect_true(is.finite(ent))
@@ -27,36 +26,29 @@ test_that("compute_entropy correctly validates input arguments", {
   p_vals <- runif(50)
   
   # Error when non-numeric p_vals
-  expect_error(
-    compute_entropy(as.character(p_vals), n_bin = 10),
-    "'p_vals' must be a numeric vector."
-  )
+  expect_error(compute_entropy(as.character(p_vals), n_bin = 10),
+               "'p_vals' must be a numeric vector."
+               )
   
   # Error when p_vals outside the [0, 1] interval
-  expect_error(
-    compute_entropy(c(-0.01, p_vals[-1]), n_bin = 10),
-    "All elements in 'p_vals' must lie between 0 and 1."
-  )
-  expect_error(
-    compute_entropy(c(1.05, p_vals[-1]), n_bin = 10),
-    "All elements in 'p_vals' must lie between 0 and 1."
-  )
+  expect_error(compute_entropy(c(-0.01, p_vals[-1]), n_bin = 10),
+               "All elements in 'p_vals' must lie between 0 and 1."
+               )
+  expect_error(compute_entropy(c(1.05, p_vals[-1]), n_bin = 10),
+               "All elements in 'p_vals' must lie between 0 and 1."
+               )
   
-  # Error when nvalid n_bin 
-  expect_error(
-    compute_entropy(p_vals, n_bin = 0),
-    "'n_bin' must be a positive integer."
-  )
-  expect_error(
-    compute_entropy(p_vals, n_bin = -3),
-    "'n_bin' must be a positive integer."
-  )
-  expect_error(
-    compute_entropy(p_vals, n_bin = 100), # 100 > length(p_vals) 
-    "'n_bin' cannot exceed the number of elements in 'p_vals'."
-  )
-  expect_error(
-    compute_entropy(p_vals, n_bin = "five"),
-    "'n_bin' must be a positive integer."
-  )
+  # Error when invalid n_bin 
+  expect_error(compute_entropy(p_vals, n_bin = 0),
+               "'n_bin' must be a positive integer."
+               )
+  expect_error(compute_entropy(p_vals, n_bin = -3),
+               "'n_bin' must be a positive integer."
+               )
+  expect_error(compute_entropy(p_vals, n_bin = 100), # 100 > length(p_vals) 
+               "'n_bin' cannot exceed the number of elements in 'p_vals'."
+               )
+  expect_error(compute_entropy(p_vals, n_bin = "five"),
+               "'n_bin' must be a positive integer."
+               )
 })
